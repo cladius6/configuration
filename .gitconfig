@@ -1,0 +1,5 @@
+[core]
+	excludefiel = ~/.gitignore_global
+[user]
+  email = John.Doe@Alice.magic
+  name = John
