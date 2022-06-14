@@ -48,9 +48,6 @@ command! MakeTags !ctags -R .
 " - Use ^n and ^p to go back and forth in the suggestion list
 
 
-
-
-
 " FILE BROWSING:
 
 " Tweaks for browsing
@@ -75,11 +72,6 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " - Take over the world!
 "   (with much fewer keystrokes)
 
-" NOW WE CAN:
-" - Run :make to run RSpec
-" - :cl to list errors
-" - :cc# to jump to error by number
-" - :cn and :cp to navigate forward and back
 set number
 set ruler
 set ai
@@ -89,3 +81,18 @@ set tabstop=2
 set shiftwidth=2
 colorscheme peachpuff
 highlight Comment ctermfg=green
+highlight Visual cterm=NONE    ctermbg=cyan  ctermfg=black
+highlight Search cterm=reverse ctermbg=black ctermfg=yellow
+" Plugins ===========
+call plug#begin()
+Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/nvim-telescope/telescope.nvim'
+call plug#end()
+let mapleader = " "
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
